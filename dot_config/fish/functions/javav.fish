@@ -17,7 +17,7 @@ function javav
   end
 
   echo 'Setting up env for Java' $argv
-  set --universal JAVA_HOME (eval $java_home_cmd $argv)
+  set --universal --export JAVA_HOME (eval $java_home_cmd $argv)
   set PATH $JAVA_HOME/bin $PATH
 end
 
