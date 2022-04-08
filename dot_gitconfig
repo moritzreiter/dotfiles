@@ -37,8 +37,6 @@
 
   quick-checkout = "!YARNHOOK_BYPASS=true git checkout"
 [core]
-  # Get mad if tabs are used for indentation
-  whitespace = tab-in-indent
   excludesFile = ~/.gitignore_global
 [push]
   default = simple
