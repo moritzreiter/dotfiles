@@ -48,8 +48,6 @@
   tool = meld
 [merge]
   tool = meld
-[include]
-  path = ~/.gitconfig_local
 [commit]
   verbose = true
 [filter "lfs"]
