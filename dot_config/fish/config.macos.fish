@@ -5,6 +5,9 @@ set -x LANG en_US.UTF-8
 # Python
 alias pip='pip3'
 
+# PlantUML
+set -x GRAPHVIZ_DOT (which dot)
+
 # Handy aliases
 alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
 alias net-listening='lsof -i TCP -s TCP:LISTEN -nP'
