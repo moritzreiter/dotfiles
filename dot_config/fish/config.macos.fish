@@ -1,3 +1,6 @@
+# Hombebrew
+eval (/opt/homebrew/bin/brew shellenv)
+
 # Locale
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
