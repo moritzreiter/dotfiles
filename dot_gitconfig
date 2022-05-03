@@ -34,12 +34,6 @@
 
   # Cleanup
   cleanup-merged-branches = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-
-  quick-checkout = "!YARNHOOK_BYPASS=true git checkout"
-[core]
-  excludesFile = ~/.gitignore_global
-[push]
-  default = simple
 [pull]
   ff = only
 [diff]
@@ -53,5 +47,3 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-[hub]
-  protocol = ssh
