@@ -1,5 +1,6 @@
 # Hombebrew
-eval (/opt/homebrew/bin/brew shellenv)
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 
 # Locale
 set -x LC_ALL en_US.UTF-8
