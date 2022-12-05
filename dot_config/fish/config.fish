@@ -6,6 +6,9 @@ set -x PYTHONSTARTUP ~/.pythonrc
 set -x PIP_REQUIRE_VIRTUALENV true
 set -x VIRTUAL_ENV_DISABLE_PROMPT true
 
+# Show colors in `less`
+set -x LESS -r
+
 alias svim='sudo -E vim'
 
 set workDir (dirname (status -f))
