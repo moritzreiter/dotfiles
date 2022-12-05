@@ -4,3 +4,4 @@ format = "$time$all"
 format = "[$time]($style) "
 disabled = false
 time_format = '%F %T'
+
