@@ -1,3 +1,5 @@
+set -g fish_key_bindings fish_hybrid_key_bindings
+
 set -x EDITOR vim
 set -x UNCRUSTIFY_CONFIG ~/.config/uncrustify
 
