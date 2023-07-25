@@ -27,6 +27,8 @@ end
   source $workDir"/config.ssh-keychain.fish"
 end
 
+set fish_greeting ""
+
 if begin set -q TERM; and command --quiet --search fortune; end
   fortune oblique
 end
@@ -35,4 +37,5 @@ end
 if command --quiet --search starship
   starship init fish | source
 end
+
 
