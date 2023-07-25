@@ -53,7 +53,7 @@ Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 call plug#end()
 
-if !($TERM_PROGRAM == "vscode")
-  colorscheme solarized
-endif
+"if !($TERM_PROGRAM == "vscode")
+"  colorscheme solarized
+"endif
 
