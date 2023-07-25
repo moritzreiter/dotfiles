@@ -1,5 +1,5 @@
 [user]
-  email = moritz@anothernode.com
+  email = mail@moritzreiter.de
   name = Moritz Reiter
 [alias]
   # Core workflow operations
@@ -35,9 +35,10 @@
   # Cleanup
   cleanup-merged-branches = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
 [pull]
-  ff = only
+  rebase = true
 [diff]
   tool = meld
+	submodule = log
 [merge]
   tool = meld
 [commit]
