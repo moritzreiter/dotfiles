@@ -33,9 +33,14 @@ if begin set -q TERM; and command --quiet --search fortune; end
   fortune oblique
 end
 
+if command --quiet --search exa
+  alias ll="exa -l -g --icons --git"
+  alias la="exa -la -g --icons --git"
+  alias llt="exa -1 --icons --tree --git-ignore"
+end
+
 # Starship prompt
 if command --quiet --search starship
   starship init fish | source
 end
-
 
