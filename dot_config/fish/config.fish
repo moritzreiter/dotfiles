@@ -1,3 +1,9 @@
+if status is-interactive
+and not set -q TMUX
+and not [ $TERMINAL_EMULATOR = "JetBrains-JediTerm" ]
+  exec tmux new-session -A -s default
+end
+
 set -g fish_key_bindings fish_hybrid_key_bindings
 
 set -x EDITOR vim
