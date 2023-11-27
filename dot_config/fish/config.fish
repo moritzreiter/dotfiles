@@ -1,6 +1,6 @@
 if status is-interactive
 and not set -q TMUX
-and not [ $TERMINAL_EMULATOR = "JetBrains-JediTerm" ]
+and [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]
   exec tmux new-session -A -s default
 end
 
