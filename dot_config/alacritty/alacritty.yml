@@ -16,3 +16,7 @@ font:
     style: Bold Italic
 
   size: 12
+
+window:
+  startup_mode: Fullscreen
+
