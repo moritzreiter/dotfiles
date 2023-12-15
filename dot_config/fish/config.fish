@@ -10,7 +10,6 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 set fish_greeting ""
 
 set -x EDITOR vim
-set -x UNCRUSTIFY_CONFIG ~/.config/uncrustify
 set -x PYTHONSTARTUP ~/.config/python
 
 
@@ -18,6 +17,7 @@ set -x PYTHONSTARTUP ~/.config/python
 set -x LESS -r
 
 alias svim='sudo -E vim'
+alias n='nvim'
 
 set workDir (dirname (status -f))
 
@@ -52,4 +52,10 @@ if command --quiet --search starship
 end
 
 zoxide init fish | source
+
+# pnpm
+set -gx PNPM_HOME "/Users/moritz/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
 
