@@ -6,9 +6,6 @@ set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info"
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
-# Python
-alias pip='pip3'
-
 # PlantUML
 set -x GRAPHVIZ_DOT (which dot)
 
