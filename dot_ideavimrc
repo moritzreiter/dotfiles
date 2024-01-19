@@ -1,3 +1,4 @@
 set ideajoin
 set relativenumber number
-
+set showmodewidget
+set colorfulmodewidget
