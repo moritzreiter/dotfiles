@@ -1,4 +1,4 @@
-# tmux please, but only if not in JetBrains terminal
+# tmux please, but not in a JetBrains terminal
 if status is-interactive
     and not set -q TMUX
     and [ "$TERMINAL_EMULATOR" != JetBrains-JediTerm ]
@@ -45,7 +45,7 @@ end
 if begin
         set -q TERM; and command --quiet --search fortune
     end
-    fortune oblique
+    fortune programmer-quotes
 end
 
 # launch starship

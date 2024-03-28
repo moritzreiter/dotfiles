@@ -1,6 +1,5 @@
-# Hombebrew
-set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
-set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+# Load homebrew env
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Locale
 set -x LC_ALL en_US.UTF-8
@@ -15,4 +14,3 @@ alias net-listening='lsof -i TCP -s TCP:LISTEN -nP'
 alias proc-monitor='top -o cpu -stats pid,command,cpu,mem,time,threads,state'
 alias net-monitor-wired='nettop -d -P -J bytes_in,bytes_out -t wired'
 alias net-monitor-wifi='nettop -d -P -J bytes_in,bytes_out -t wifi'
-
