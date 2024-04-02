@@ -12,27 +12,11 @@ set fish_greeting ""
 set -x EDITOR vim
 set -x PYTHONSTARTUP ~/.config/python
 
-
-# show colors in `less`
-set -x LESS -R
-
 alias svim='sudo -E vim'
 alias n='nvim'
 
-set workDir (dirname (status -f))
-
-# Load macOS specific config
-if test (uname) = Darwin
-    source $workDir"/config.macos.fish"
-end
-
-# load host specific config
-if begin
-        test (hostname) = golem-pi3
-        or test (hostname) = golem-pi-zero
-    end
-    source $workDir"/config.ssh-keychain.fish"
-end
+# show colors in `less`
+set -x LESS -R
 
 # nicer file listings with eza
 if command --quiet --search eza
@@ -40,6 +24,8 @@ if command --quiet --search eza
     alias la="eza -la -g --icons --git"
     alias llt="eza -1 --icons --tree --git-ignore"
 end
+
+zoxide init fish | source
 
 # tell a fortune
 if begin
@@ -53,10 +39,28 @@ if command --quiet --search starship
     starship init fish | source
 end
 
-zoxide init fish | source
-
 # pnpm
 set -gx PNPM_HOME /Users/moritz/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
+end
+
+# macOS only
+if test (uname) = Darwin
+    # Load homebrew env
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Locale
+    set -x LC_ALL en_US.UTF-8
+    set -x LANG en_US.UTF-8
+
+    # PlantUML
+    set -x GRAPHVIZ_DOT (which dot)
+
+    # Handy aliases
+    alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
+    alias net-listening='lsof nP -i TCP -s TCP:LISTEN'
+    alias proc-monitor='top -o cpu -stats pid,command,cpu,mem,time,threads,state'
+    alias net-monitor-wired='nettop -dP -J bytes_in,bytes_out -t wired'
+    alias net-monitor-wifi='nettop -dP -J bytes_in,bytes_out -t wifi'
 end
