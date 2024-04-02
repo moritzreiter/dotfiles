@@ -14,7 +14,7 @@ set -x PYTHONSTARTUP ~/.config/python
 
 
 # show colors in `less`
-set -x LESS -r
+set -x LESS -R
 
 alias svim='sudo -E vim'
 alias n='nvim'
@@ -43,7 +43,7 @@ end
 
 # tell a fortune
 if begin
-        set -q TERM; and command --quiet --search fortune
+        status is-interactive; and command --quiet --search fortune
     end
     fortune programmer-quotes
 end
