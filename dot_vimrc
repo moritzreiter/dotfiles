@@ -9,8 +9,8 @@ set background=dark
 " Supports copy & paste and scrolling on macOS
 set mouse=a
 
-" Use 2 spaces for indentation
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+" Use 4 spaces for indentation
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " Show line numbers
 "set number
