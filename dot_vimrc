@@ -29,3 +29,7 @@ autocmd BufReadPost COMMIT_EDITMSG
 " Bind 'Ctrl-J' to split lines
 nnoremap <NL> i<CR><ESC>
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
