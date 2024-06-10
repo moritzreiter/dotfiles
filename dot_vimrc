@@ -36,3 +36,7 @@ nnoremap <silent> ]B :blast<CR>
 
 " Tab complete files relative to buffer (:edit %%<tab>)
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" plugins
+filetype plugin on
+runtime macros/matchit.vim
