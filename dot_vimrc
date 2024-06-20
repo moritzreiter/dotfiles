@@ -6,6 +6,10 @@ endif
 
 set background=dark
 
+" Smart case insensitive search
+set ignorecase
+set smartcase
+
 " Supports copy & paste and scrolling on macOS
 set mouse=a
 
