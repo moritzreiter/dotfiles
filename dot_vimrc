@@ -10,29 +10,23 @@ set background=dark
 set ignorecase
 set smartcase
 
-" Supports copy & paste and scrolling on macOS
-set mouse=a
+" Search with incremental highlighting
+set hlsearch
+set incsearch
+
+" Temporarily disable search highlights with <C-l>
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Use 4 spaces for indentation
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
-" Show line numbers
-"set number
-
 " Don't break words when soft wrapping
 set linebreak
 
-" Help to write better git commit messages
-" <https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message>
-autocmd Filetype "gitcommit" setlocal spell textwidth=72
+" Supports copy & paste and scrolling on macOS
+set mouse=a
 
-" And make sure the cursor is in first line when editing git commit messages
-autocmd BufReadPost COMMIT_EDITMSG
-  \ exe "normal! gg"
-
-" Bind 'Ctrl-J' to split lines
-nnoremap <NL> i<CR><ESC>
-
+" Add shortcuts for buffer navigation
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
@@ -44,3 +38,12 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " plugins
 filetype plugin on
 runtime macros/matchit.vim
+
+" Help to write better git commit messages
+" <https://robots.thoughtbot.com/5-useful-tips-for-a-better-commit-message>
+autocmd Filetype "gitcommit" setlocal spell textwidth=72
+
+" And make sure the cursor is in first line when editing git commit messages
+autocmd BufReadPost COMMIT_EDITMSG
+  \ exe "normal! gg"
+
