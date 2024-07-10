@@ -10,6 +10,9 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " Use idea smart join for <C-j>
 set ideajoin
 
+" Don't switch to select mode when refactoring
+set idearefactormode=keep
+
 " Don't make annoying sounds
 set visualbell
 set noerrorbells
