@@ -13,3 +13,5 @@ set ideajoin
 " Don't make annoying sounds
 set visualbell
 set noerrorbells
+
+map <C-h> <Action>(ShowHoverInfo)
