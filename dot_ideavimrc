@@ -23,3 +23,5 @@ set ideamarks
 " Idea Action mappings
 map <C-h> <Action>(ShowHoverInfo)
 map <M-h> <Action>(QuickImplementations)
+map <Leader>g <Action>(Generate)
+map <Leader>b <Action>(ToggleLineBreakpoint)
