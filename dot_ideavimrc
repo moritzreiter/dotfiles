@@ -1,4 +1,4 @@
-" Search
+" Search settings
 set ignorecase
 set smartcase
 set hlsearch
@@ -7,14 +7,19 @@ set incsearch
 " Temporarily disable search highlights with <C-l>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-" Use idea smart join for <C-j>
+" Don't make annoying sounds
+set visualbell
+set noerrorbells
+
+" Use smart join
 set ideajoin
 
 " Don't switch to select mode when refactoring
 set idearefactormode=keep
 
-" Don't make annoying sounds
-set visualbell
-set noerrorbells
+" Sync marks with idea bookmarks
+set ideamarks
 
+" Idea Action mappings
 map <C-h> <Action>(ShowHoverInfo)
+map <M-h> <Action>(QuickImplementations)
