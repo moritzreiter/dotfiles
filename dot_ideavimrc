@@ -21,9 +21,15 @@ set idearefactormode=keep
 set ideamarks
 
 " Idea Action mappings
-map <C-h> <Action>(ShowHoverInfo)
-map <M-h> <Action>(QuickImplementations)
-map <Leader>g <Action>(Generate)
-map <Leader>b <Action>(ToggleLineBreakpoint)
-map <Leader>em <Action>(ExtractMethod)
-map <Leader>i <Action>(Inline)
+nmap <C-h> <Action>(ShowHoverInfo)
+nmap <Leader>q <Action>(QuickImplementations)
+nmap <Leader>e <Action>(ShowErrorDescription)
+nmap <Leader>g <Action>(Generate)
+nmap <Leader>b <Action>(ToggleLineBreakpoint)
+nmap <Leader>em <Action>(ExtractMethod)
+nmap <Leader>i <Action>(Inline)
+nmap <Leader>r <Action>(RunClass)
+nmap <Leader>d <Action>(DebugClass)
+nmap <Leader>h <Action>(PreviousTab)
+nmap <Leader>l <Action>(NextTab)
+nmap <Leader>w <Action>(CloseActiveTab)
