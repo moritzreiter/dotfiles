@@ -1,8 +1,9 @@
-" Search settings
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+
+set surround
 
 " Temporarily disable search highlights with <C-l>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -20,18 +21,20 @@ set idearefactormode=keep
 " Sync marks with idea bookmarks
 set ideamarks
 
+let mapleader = " "
+
 " Idea Action mappings
 nmap <C-h> <Action>(ShowHoverInfo)
+map <A-r> <Action>(Run)
+map <A-d> <Action>(Debug)
+map <S-A-r> <Action>(RunClass)
+map <S-A-d> <Action>(DebugClass)
+map <A-[> <Action>(PreviousTab)
+map <A-]> <Action>(NextTab)
+map <A-w> <Action>(CloseEditor)
 nmap <Leader>q <Action>(QuickImplementations)
 nmap <Leader>e <Action>(ShowErrorDescription)
 nmap <Leader>g <Action>(Generate)
 nmap <Leader>b <Action>(ToggleLineBreakpoint)
-nmap <Leader>em <Action>(ExtractMethod)
+map <Leader>em <Action>(ExtractMethod)
 nmap <Leader>i <Action>(Inline)
-nmap <Leader>r <Action>(Run)
-nmap <Leader>rc <Action>(RunClass)
-nmap <Leader>d <Action>(Debug)
-nmap <Leader>dc <Action>(DebugClass)
-nmap <Leader>h <Action>(PreviousTab)
-nmap <Leader>l <Action>(NextTab)
-nmap <Leader>w <Action>(CloseActiveTab)
