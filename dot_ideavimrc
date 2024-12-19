@@ -25,7 +25,7 @@ set ideamarks
 let mapleader = " "
 
 " Idea Action mappings
-nmap <C-h> <Action>(ShowHoverInfo)
+nmap <C-i> <Action>(ShowHoverInfo)
 map <A-r> <Action>(Run)
 map <A-d> <Action>(Debug)
 map <S-A-r> <Action>(RunClass)
