@@ -21,3 +21,15 @@ chezmoi re-add file # re-add a modified file
 chezmoi cd          # change to git repository
 chezmoi update      # pull changes from remote and apply
 ```
+
+## tmux
+
+For the tmux plugins, [install
+`tpm`](https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation):
+
+```shell
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Then install the plugins with `Ctrl-b I` (capital I).
+
