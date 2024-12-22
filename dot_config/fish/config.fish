@@ -1,5 +1,6 @@
 # tmux please, but not in a JetBrains terminal
 if status is-interactive
+    and command --quiet --search tmux
     and not set -q TMUX
     and [ "$TERMINAL_EMULATOR" != JetBrains-JediTerm ]
     exec tmux new-session -A -s default
@@ -25,7 +26,9 @@ if command --quiet --search eza
     alias llt="eza -1 --icons --tree --git-ignore"
 end
 
-zoxide init fish | source
+if command --quiet --search zoxide
+    zoxide init fish | source
+end
 
 # tell a fortune
 if begin
