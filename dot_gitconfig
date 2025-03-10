@@ -34,6 +34,11 @@
 
   # Cleanup
   cleanup-merged-branches = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+
+  # Fixup
+  fixup = !git commit --fixup=\"$1\" \
+      && git rebase --interactive --autosquash \"$1^\" \
+      && :
 [pull]
   rebase = true
 [diff]

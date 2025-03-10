@@ -4,6 +4,7 @@ set hlsearch
 set incsearch
 
 set surround
+set matchit
 set NERDTree
 
 " Temporarily disable search highlights with <C-l>
@@ -39,3 +40,4 @@ nmap <Leader>g <Action>(Generate)
 nmap <Leader>b <Action>(ToggleLineBreakpoint)
 map <Leader>em <Action>(ExtractMethod)
 nmap <Leader>i <Action>(Inline)
+map <Leader>r <Action>(RefactoringMenu)
