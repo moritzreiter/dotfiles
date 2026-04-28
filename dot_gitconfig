@@ -14,7 +14,7 @@
   stashes = stash list
 
   # Examining history
-  history = log --oneline --decorate --graph
+  h = log --oneline --decorate --graph
   changed-files = log --oneline --decorate --name-only
   patches = log -p
   lines = log -L # <start>,<end>:<file>
