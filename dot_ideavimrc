@@ -1,8 +1,10 @@
+" Search settings
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 
+" Plugins
 set surround
 set matchit
 set NERDTree
@@ -23,22 +25,34 @@ set idearefactormode=keep
 " Sync marks with idea bookmarks
 set ideamarks
 
+
+" Mappings
+" --------
+
 let mapleader = " "
 
-" Idea Action mappings
-nmap <C-i> <Action>(ShowHoverInfo)
-map <A-r> <Action>(Run)
-map <A-d> <Action>(Debug)
-map <S-A-r> <Action>(RunClass)
-map <S-A-d> <Action>(DebugClass)
+" Navigation
 map <A-[> <Action>(PreviousTab)
 map <A-]> <Action>(NextTab)
 map <A-w> <Action>(CloseEditor)
-nmap <Leader>q <Action>(QuickImplementations)
-nmap <Leader>e <Action>(ShowErrorDescription)
-nmap <Leader>g <Action>(Generate)
-nmap <Leader>b <Action>(ToggleLineBreakpoint)
-map <Leader>em <Action>(ExtractMethod)
-nmap <Leader>i <Action>(Inline)
-map <Leader>r <Action>(RefactoringMenu)
-nmap <Leader>sw <Action>(EditorToggleShowWhitespaces)
+
+" Execution
+map <A-r>   <Action>(Run)
+map <A-d>   <Action>(Debug)
+map <S-A-r> <Action>(RunClass)
+map <S-A-d> <Action>(DebugClass)
+
+" Inspection and Debugging
+map <Leader>i  <Action>(ShowHoverInfo)
+map <Leader>q  <Action>(QuickImplementations)
+map <Leader>e  <Action>(ShowErrorDescription)
+map <Leader>b  <Action>(ToggleLineBreakpoint)
+map <Leader>sw <Action>(EditorToggleShowWhitespaces)
+
+" Coding
+map <Leader>g <Action>(Generate)
+
+" Refactoring
+map <Leader>r   <Action>(RefactoringMenu)
+map <Leader>rem <Action>(ExtractMethod)
+map <Leader>ri  <Action>(Inline)
