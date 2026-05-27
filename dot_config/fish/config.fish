@@ -13,6 +13,9 @@ set fish_greeting ""
 set -x EDITOR vim
 set -x PYTHONSTARTUP ~/.config/python
 
+# Needed for pandoc mermaid-filter
+set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
 alias svim='sudo -E vim'
 alias n='nvim'
 
