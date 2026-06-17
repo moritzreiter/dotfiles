@@ -6,6 +6,9 @@ if status is-interactive
     exec tmux new-session -A -s default
 end
 
+set -g fish_cursor_default block blink
+set -g fish_cursor_insert block blink
+
 # fish
 set -g fish_key_bindings fish_hybrid_key_bindings
 set fish_greeting ""
@@ -67,3 +70,8 @@ if test (uname) = Darwin
     alias net-monitor-wired='nettop -dP -J bytes_in,bytes_out -t wired'
     alias net-monitor-wifi='nettop -dP -J bytes_in,bytes_out -t wifi'
 end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/moritz/.lmstudio/bin
+# End of LM Studio CLI section
+
