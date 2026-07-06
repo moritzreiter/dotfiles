@@ -31,7 +31,7 @@ set ideamarks
 
 let mapleader = " "
 
-" Navigation
+" Navigation (emulate Mac-like nav on Windows)
 map <A-[> <Action>(PreviousTab)
 map <A-]> <Action>(NextTab)
 map <A-w> <Action>(CloseEditor)
