@@ -6,12 +6,13 @@ if status is-interactive
     exec tmux new-session -A -s default
 end
 
-set -g fish_cursor_default block blink
-set -g fish_cursor_insert block blink
-
 # fish
 set -g fish_key_bindings fish_hybrid_key_bindings
 set fish_greeting ""
+
+set -g fish_cursor_default block blink
+set -g fish_cursor_insert block blink
+
 
 set -x EDITOR vim
 set -x PYTHONSTARTUP ~/.config/python
@@ -29,7 +30,7 @@ set -x LESS -R
 if command --quiet --search eza
     alias ll="eza -l -g --icons --git"
     alias la="eza -la -g --icons --git"
-    alias llt="eza -1 --icons --tree --git-ignore"
+    alias lt="eza -1 --icons --tree --git-ignore"
 end
 
 if command --quiet --search zoxide
