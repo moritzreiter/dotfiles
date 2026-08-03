@@ -22,3 +22,20 @@ if command -v eza >/dev/null 2>&1; then
     alias lt="eza -1 --icons --tree --git-ignore"
 fi
 
+# fish-like auto-suggestions
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^F' autosuggest-accept
+
+# fish-like syntax-highlighting
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fish-like history search
+# git clone https://github.com/zsh-users/zsh-history-substring-search \
+#   ~/.config/zsh/zsh-history-substring-search
+conf=$HOME/.config
+source $conf/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
