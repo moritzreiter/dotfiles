@@ -69,26 +69,13 @@ bindkey -M viins '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# Syncs the value of SSH_AUTH_SOCK to tmux before every
-# zsh command execution. This ensures ssh agent forwarding
-# works after a reconnect into an existing tmux session.
-__refresh_ssh_auth_sock() {
-    [[ -z "$TMUX" ]] && return
-
-    local tmux_env
-    tmux_env=$(tmux show-environment SSH_AUTH_SOCK 2>/dev/null)
-
-    [[ -z "$tmux_env" ]] && return
-
-    local latest="${tmux_env#SSH_AUTH_SOCK=}"
-
-    if [[ "$SSH_AUTH_SOCK" != "$latest" ]]; then
-        export SSH_AUTH_SOCK="$latest"
-    fi
+# Refresh SSH env before every cmd execution
+__refresh_ssh_env() {
+    eval $(tmux show-env | sed -n 's/^\(SSH_[^=]*\)=\(.*\)/export \1="\2"/p')
 }
 
 if [[ "$OSTYPE" == linux* ]]; then
     autoload -Uz add-zsh-hook
-    add-zsh-hook preexec __refresh_ssh_auth_sock
+    add-zsh-hook preexec __refresh_ssh_env
 fi
 
