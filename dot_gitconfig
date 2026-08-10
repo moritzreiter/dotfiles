@@ -20,11 +20,7 @@
   lines = log -L # <start>,<end>:<file>
 
   # Searching
-  ack = -c color.grep.linenumber=\"bold yellow\" \
-      -c color.grep.filename=\"bold green\" \
-      -c color.grep.match=\"reverse yellow\" \
-      grep --break --heading --line-number
-
+  find = grep --break --heading --line-number
 
   # Ignoring files locally
   ignore-locally = update-index --skip-worktree
@@ -35,14 +31,10 @@
   fixup = !git commit --fixup=\"$1\" \
       && git rebase --interactive --autosquash \"$1^\" \
       && :
-[pull]
-  rebase = true
 [diff]
   submodule = log
 [commit]
   verbose = true
-[init]
-  defaultBranch = main
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
