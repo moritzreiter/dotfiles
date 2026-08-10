@@ -22,18 +22,48 @@ if command -v eza >/dev/null 2>&1; then
     alias lt="eza -1 --icons --tree --git-ignore"
 fi
 
+# Homebrew setup
+if type brew &>/dev/null; then
+  eval "$(brew shellenv)"
+
+  # Completions
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
+case "$OSTYPE" in
+    darwin*)
+        share="$(brew --prefix)/share"
+        zsh_autosuggestions="$share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        zsh_syntax_highlighting="$share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        zsh_history_substring_search="$share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+        ;;
+    linux*)
+        share="/usr/share"
+        zsh_autosuggestions="$share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        zsh_syntax_highlighting="$share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+        zsh_history_substring_search="$HOME/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
+        ;;
+    *)
+        echo "Unknow operating system, can't config zsh plugins..."
+        ;;
+esac
+
+# https://github.com/marlonrichert/zsh-autocomplete
+#source $share_dir/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 # fish-like auto-suggestions
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $zsh_autosuggestions
 bindkey '^F' autosuggest-accept
 
 # fish-like syntax-highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $zsh_syntax_highlighting
 
 # fish-like history search
 # git clone https://github.com/zsh-users/zsh-history-substring-search \
 #   ~/.config/zsh/zsh-history-substring-search
-conf=$HOME/.config
-source $conf/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $zsh_history_substring_search
 bindkey -M viins '^P' history-substring-search-up
 bindkey -M viins '^N' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
