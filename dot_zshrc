@@ -70,6 +70,7 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # Refresh SSH env before every cmd execution
+# https://blog.feld.me/posts/2025/12/tmux-ssh-agent-forwarding/
 __refresh_ssh_env() {
     eval $(tmux show-env | sed -n 's/^\(SSH_[^=]*\)=\(.*\)/export \1="\2"/p')
 }
