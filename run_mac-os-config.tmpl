@@ -10,6 +10,8 @@ defaults write com.apple.Terminal AppleShowScrollBars -string WhenScrolling
 # Don't substitute dot for two spaces (wtf Apple, how is this on by default?!)
 defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
 
+# Unset ApplePressAndHold globally
+# Setting it to false doesn't work for some reason
 # https://stackoverflow.com/a/70911250/1225882
 defaults delete -g ApplePressAndHoldEnabled
 
