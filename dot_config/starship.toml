@@ -1,7 +1,9 @@
-format = "$time$all"
+format = "$time$shell$all"
 
 [time]
-format = "[$time]($style) "
 disabled = false
+format = "[$time]($style) "
 time_format = '%F %T'
 
+[shell]
+disabled = false
