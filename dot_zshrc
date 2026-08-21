@@ -12,6 +12,8 @@ fi
 
 export PATH="$HOME/bin:$PATH"
 
+alias nv="nvim"
+
 # launch starship
 eval "$(starship init zsh)"
 
