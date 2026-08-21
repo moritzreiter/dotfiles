@@ -32,6 +32,8 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
   autoload -Uz compinit
   compinit
+
+  export HOMEBREW_NO_ENV_HINTS=1
 fi
 
 case "$OSTYPE" in
