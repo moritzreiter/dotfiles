@@ -2,11 +2,11 @@
 # if interactive
 # and tmux exists
 # and not already in tmux
-# and not in JetBrains term
+# and not in IntelliJ term
 if [[ $- == *i* ]] && \
    command -v tmux >/dev/null 2>&1 && \
    [[ -z "$TMUX" ]] && \
-   [[ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
+   [[ -z "$INTELLIJ_ENVIRONMENT_READER" ]] && \
     exec tmux new-session -A -s default
 fi
 
