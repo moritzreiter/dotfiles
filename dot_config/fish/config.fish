@@ -12,6 +12,10 @@ if test "$run_tmux" = true
     exec tmux new-session -A -s default
 end
 
+######################
+# fish customization #
+######################
+
 set fish_greeting ""
 
 # vi mode, but with emacs shortcuts
@@ -24,20 +28,17 @@ set --global fish_cursor_replace_one underscore blink
 set --global fish_cursor_replace underscore blink
 set --global fish_cursor_visual block blink
 
+#############################
+# environment customization #
+#############################
+
+alias nv='nvim'
+alias svim='sudo -E vim'
+alias cm='chezmoi'
+
 set --export EDITOR vim
 
 set --export PYTHONSTARTUP ~/.config/python
-
-# needed for pandoc mermaid-filter
-set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-
-alias svim='sudo -E vim'
-alias nv='nvim'
-
-alias cm='chezmoi'
-
-# show colors in `less`
-set --export LESS -R
 
 # nicer file listings with eza
 if command --quiet --search eza
@@ -50,23 +51,6 @@ end
 if status is-interactive
     and command --quiet --search fortune
     fortune programmer-quotes
-end
-
-# macOS only
-if test (uname) = Darwin
-    # Locale
-    set -x LC_ALL en_US.UTF-8
-    set -x LANG en_US.UTF-8
-
-    # PlantUML
-    set -x GRAPHVIZ_DOT (which dot)
-
-    # Handy aliases
-    alias launchpad-reset='defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock'
-    alias net-listening='lsof -nP -i TCP -s TCP:LISTEN'
-    alias proc-monitor='top -o cpu -stats pid,command,cpu,mem,time,threads,state'
-    alias net-monitor-wired='nettop -dP -J bytes_in,bytes_out -t wired'
-    alias net-monitor-wifi='nettop -dP -J bytes_in,bytes_out -t wifi'
 end
 
 # Added by LM Studio CLI (lms)
