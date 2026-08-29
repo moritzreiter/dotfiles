@@ -1,30 +1,43 @@
-# tmux please, but not in a JetBrains terminal
-if status is-interactive
+# launch tmux
+# if interactive
+# and tmux exists
+# and not already in tmux
+# and not in IntelliJ term
+set --local run_tmux true
+if test "$run_tmux" = true
+    and status is-interactive
     and command --quiet --search tmux
-    and not set -q TMUX
-    and [ "$TERMINAL_EMULATOR" != JetBrains-JediTerm ]
+    and not set --query TMUX
+    and not set --query INTELLIJ_ENVIRONMENT_READER
     exec tmux new-session -A -s default
 end
 
-# fish
-set -g fish_key_bindings fish_hybrid_key_bindings
 set fish_greeting ""
 
-set -g fish_cursor_default block blink
-set -g fish_cursor_insert block blink
+# vi mode, but with emacs shortcuts
+set --global fish_key_bindings fish_hybrid_key_bindings
 
+# configure cursor
+set --global fish_cursor_default block blink
+set --global fish_cursor_insert line blink
+set --global fish_cursor_replace_one underscore blink
+set --global fish_cursor_replace underscore blink
+set --global fish_cursor_visual block blink
 
-set -x EDITOR vim
-set -x PYTHONSTARTUP ~/.config/python
+set --export EDITOR vim
 
-# Needed for pandoc mermaid-filter
+set --export PYTHONSTARTUP ~/.config/python
+
+# needed for pandoc mermaid-filter
 set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 alias svim='sudo -E vim'
-alias n='nvim'
+alias nv='nvim'
+
+alias cm='chezmoi'
 
 # show colors in `less`
-set -x LESS -R
+set --export LESS -R
 
 # nicer file listings with eza
 if command --quiet --search eza
@@ -33,26 +46,10 @@ if command --quiet --search eza
     alias lt="eza -1 --icons --tree --git-ignore"
 end
 
-if command --quiet --search zoxide
-    zoxide init fish | source
-end
-
 # tell a fortune
-if begin
-        status is-interactive; and command --quiet --search fortune
-    end
+if status is-interactive
+    and command --quiet --search fortune
     fortune programmer-quotes
-end
-
-# launch starship
-if command --quiet --search starship
-    starship init fish | source
-end
-
-# pnpm
-set -gx PNPM_HOME /Users/moritz/Library/pnpm
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
 end
 
 # macOS only
@@ -75,4 +72,9 @@ end
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/moritz/.lmstudio/bin
 # End of LM Studio CLI section
+
+# launch starship
+if command --quiet --search starship
+    starship init fish | source
+end
 
