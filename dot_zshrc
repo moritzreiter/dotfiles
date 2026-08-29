@@ -3,19 +3,18 @@
 # and tmux exists
 # and not already in tmux
 # and not in IntelliJ term
-if [[ $- == *i* ]] && \
+run_tmux=false
+if [[ "$run_tmux" == "true" ]] && \
+   [[ $- == *i* ]] && \
    command -v tmux >/dev/null 2>&1 && \
    [[ -z "$TMUX" ]] && \
-   [[ -z "$INTELLIJ_ENVIRONMENT_READER" ]] && \
+   [[ -z "$INTELLIJ_ENVIRONMENT_READER" ]]; then
     exec tmux new-session -A -s default
 fi
 
 export PATH="$HOME/bin:$PATH"
 
 alias nv="nvim"
-
-# launch starship
-eval "$(starship init zsh)"
 
 # nicer file listings with eza
 if command -v eza >/dev/null 2>&1; then
@@ -83,4 +82,7 @@ if [[ "$OSTYPE" == linux* ]]; then
     autoload -Uz add-zsh-hook
     add-zsh-hook preexec __refresh_ssh_env
 fi
+
+# launch starship
+eval "$(starship init zsh)"
 
