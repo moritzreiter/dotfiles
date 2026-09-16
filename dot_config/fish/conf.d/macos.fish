@@ -12,6 +12,8 @@ if test (uname) = Darwin
     alias net-monitor-wired='nettop -dP -J bytes_in,bytes_out -t wired'
     alias net-monitor-wifi='nettop -dP -J bytes_in,bytes_out -t wifi'
 
+    set --export HOMEBREW_NO_ENV_HINTS 1
+
     # needed for pandoc mermaid-filter
     set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 end
