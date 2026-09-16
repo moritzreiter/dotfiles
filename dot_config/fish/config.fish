@@ -36,6 +36,9 @@ alias nv='nvim'
 alias svim='sudo -E vim'
 alias cm='chezmoi'
 
+set --export XDG_CONFIG_HOME $HOME/.config
+set --export EZA_CONFIG_DIR $XDG_CONFIG_HOME/eza
+
 set --export EDITOR vim
 
 set --export PYTHONSTARTUP ~/.config/python
