@@ -12,9 +12,9 @@ if test "$run_tmux" = true
     exec tmux new-session -A -s default
 end
 
-######################
-# fish customization #
-######################
+
+# fish customization
+# ------------------
 
 set fish_greeting ""
 
@@ -28,9 +28,9 @@ set --global fish_cursor_replace_one underscore blink
 set --global fish_cursor_replace underscore blink
 set --global fish_cursor_visual block blink
 
-#############################
-# environment customization #
-#############################
+
+# environment customization
+# -------------------------
 
 alias nv='nvim'
 alias svim='sudo -E vim'
