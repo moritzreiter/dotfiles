@@ -41,6 +41,8 @@ set --export EZA_CONFIG_DIR $XDG_CONFIG_HOME/eza
 
 set --export EDITOR vim
 
+set --export BAT_THEME Dracula
+
 set --export PYTHONSTARTUP ~/.config/python
 
 # tell a fortune
